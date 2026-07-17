@@ -98,7 +98,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <template x-for="p in allProjects" :key="p.id">
             <div
-              x-show="filter === 'all' || p.category === filter"
+              x-show="filter === 'all' || p.category.includes(filter)"
               x-transition:enter="transition ease-out duration-300"
               x-transition:enter-start="opacity-0 scale-95 translate-y-2"
               x-transition:enter-end="opacity-100 scale-100 translate-y-0"
@@ -200,12 +200,12 @@
         ],
 
         allProjects: [
-          { id:1,  title:'Hospital Management System',  category:'java',      categoryLabel:'Java',         tags:['Java','MySQL',],           year:'2026', desc:'A comprehensive digital healthcare platform designed to streamline hospital operations and enhance patient management. Features secure registration, doctor scheduling, and automated billing.',    img:'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=700&q=80',  url:'#' },
+          { id:1,  title:'Hospital Management System',  category:['java', 'mysql'],      categoryLabel:'Java',         tags:['Java','MySQL',],           year:'2026', desc:'A comprehensive digital healthcare platform designed to streamline hospital operations and enhance patient management. Features secure registration, doctor scheduling, and automated billing.',    img:'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=700&q=80',  url:'#' },
         ],
 
         get visibleCount() {
           if (this.filter === 'all') return this.allProjects.length;
-          return this.allProjects.filter(p => p.category === this.filter).length;
+          return this.allProjects.filter(p => p.category.includes(this.filter)).length;
         },
 
         init() {
