@@ -1,25 +1,30 @@
-# Folio— Freelance Portfolio Template (HTML · Tailwind · Alpine.js)
-#### Preview
+# 📑 Supun Priyashanka — Personal Portfolio
 
- - [Demo](https://themewagon.github.io/folio-html/)
+> **A beautifully crafted, modern personal portfolio website showcasing my skills, education, and projects as a Software Engineering undergraduate.**
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/folio-html/)
+---
 
-## Getting Started
+### 🚀 Quick Links
 
-1. Clone Repository
-```
-git clone https://github.com/themewagon/folio-html.git
-```
+| 🌐 Live Website | 💻 GitHub Repository |
+| :--- | :--- |
+| [Click here to view Portfolio](https://supunyatiragala.github.io/) | [View Source Code](https://github.com/supunyatiragala/supunyatiragala.github.io) |
 
-## Author 
-```
-Design and code is completely written by Laurent Begey and development team. 
-```
+---
 
-## License
+### 🛠️ Tech Stack & Tools
 
- - Design and Code is Copyright &copy; <a href="https://lbegey78.gumroad.com/" target="_blank">Laurent Begey</a>
- - Licensed cover under [MIT]
- - Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+* **Programming:** Python, Java, JavaScript
+* **Web Development:** HTML5 & CSS3, Tailwind CSS, Alpine.js
+* **Database:** MySQL
+* **Design:** Figma, Canva, Adobe Photoshop
+
+---
+
+### 🚀 Getting Started
+
+#### 1. Clone the Repository
+Open your terminal and run the following command to clone the project to your local machine:
+
+```bash
+$ git clone [https://github.com/supunyatiragala/supunyatiragala.github.io.git](https://github.com/supunyatiragala/supunyatiragala.github.io.git)
