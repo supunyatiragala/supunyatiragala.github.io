@@ -4,10 +4,23 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>All Projects</title>
+  <link rel="icon" type="image/png" href="Images/my.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet"/>
-  <script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{display:['PT Sans','sans-serif'],body:['DM Sans','sans-serif']},colors:{accent:'#FF6B2B','accent-light':'#FF8F5C'}}}}</script>
+  
+  <script>
+    tailwind.config={
+      darkMode:'class',
+      theme:{
+        extend:{
+          fontFamily:{display:['PT Sans','sans-serif'],body:['DM Sans','sans-serif']},
+          colors:{accent:'#FF6B2B','accent-light':'#FF8F5C'}
+        }
+      }
+    }
+  </script>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;}
     html{font-family:'DM Sans',sans-serif;}
@@ -26,12 +39,14 @@
     [x-cloak]{display:none!important;}
     .photo-frame{position:relative;overflow:hidden;background:#e4e4e7;}
     .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
-    .project-card{transition:transform .3s cubic-bezier(.4,0,.2,1),border-color .2s;}
-    .project-card:hover{transform:translateY(-4px);}
+    .project-card{transition:transform .3s cubic-bezier(.4,0,.2,1),border-color .2s,box-shadow .3s;}
+    .project-card:hover{transform:translateY(-5px);}
   </style>
 </head>
+
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-body antialiased">
 
+  <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="scrolled?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':'bg-transparent'">
     <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -45,7 +60,7 @@
         <li><a href="index.html#contact" class="nav-link text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">Contact</a></li>
       </ul>
       <div class="flex items-center gap-3">
-        <button @click="dark=!dark;localStorage.setItem('theme',dark?'dark':'light')" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
+        <button @click="dark=!dark;localStorage.setItem('theme',dark?'dark':'light')" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer" :aria-label="dark?'Light mode':'Dark mode'">
           <svg x-show="!dark" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
           <svg x-show="dark" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
         </button>
@@ -67,18 +82,21 @@
   </header>
 
   <main>
+    <!-- HERO SECTION -->
     <section class="pt-36 pb-12 relative overflow-hidden">
       <div class="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="max-w-6xl mx-auto px-6 relative z-10">
         <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Work</p>
         <h1 class="reveal font-display font-bold text-5xl md:text-6xl text-zinc-900 dark:text-white leading-tight mb-4">All Projects</h1>
-        <p class="reveal text-lg text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed mb-8">A curated showcase of my work, spanning creative UI/UX design, clean frontend development, and high-converting landing pages.</p>
+        <p class="reveal text-lg text-zinc-500 dark:text-zinc-400 max-w-xl leading-relaxed mb-8">A curated showcase of my work, spanning creative UI/UX design, clean frontend development, and robust full-stack applications.</p>
+        
+        <!-- FILTER BUTTONS -->
         <div class="reveal flex flex-wrap gap-2">
           <template x-for="f in filterOptions" :key="f.value">
             <button
               @click="filter = f.value"
-              :class="filter === f.value ? 'bg-accent text-white border-accent' : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700 hover:border-accent'"
-              class="text-sm px-4 py-1.5 rounded-full border transition-colors"
+              :class="filter === f.value ? 'bg-accent text-white border-accent shadow-sm' : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:border-accent'"
+              class="text-sm px-4 py-2 rounded-full border transition-all duration-200 cursor-pointer"
               x-text="f.label">
             </button>
           </template>
@@ -86,15 +104,9 @@
       </div>
     </section>
 
+    <!-- PROJECTS GRID SECTION -->
     <section class="pb-24">
       <div class="max-w-6xl mx-auto px-6">
-        <!--
-          CORRECTIF : on itere sur TOUS les projets, x-show + x-transition gerent
-          la visibilite de chaque carte. L'ancienne version utilisait x-for sur
-          filteredProjects (computed), ce qui forcait un re-render complet du DOM
-          a chaque changement de filtre — detruisant les classes .reveal et cachant
-          tout le contenu.
-        -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <template x-for="p in allProjects" :key="p.id">
             <div
@@ -105,37 +117,71 @@
               x-transition:leave="transition ease-in duration-200"
               x-transition:leave-start="opacity-100 scale-100"
               x-transition:leave-end="opacity-0 scale-95">
-              <article class="project-card group h-full rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-colors">
-                <a :href="p.url" class="block photo-frame w-full h-52">
-                  <img :src="p.img" :alt="p.title" loading="lazy"/>
-                </a>
-                <div class="p-6">
-                  <div class="flex flex-wrap gap-2 mb-3">
-                    <template x-for="tag in p.tags" :key="tag">
-                      <span class="text-xs px-2.5 py-1 rounded-full"
-                        :class="tag === p.categoryLabel ? 'bg-orange-50 dark:bg-zinc-800 text-accent border border-orange-200 dark:border-zinc-700' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'"
-                        x-text="tag"></span>
-                    </template>
-                  </div>
-                  <a :href="p.url">
-                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2 group-hover:text-accent transition-colors" x-text="p.title"></h3>
-                  </a>
-                  <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4" x-text="p.desc"></p>
-                  <div class="flex items-center justify-between">
-                    <a :href="p.url" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nav-link">View project →</a>
-                    <span class="text-xs text-zinc-400" x-text="p.year"></span>
+              
+              <!-- PROJECT CARD -->
+              <article class="project-card group h-full rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 hover:border-accent flex flex-col justify-between shadow-sm hover:shadow-xl">
+                
+                <!-- Image Container -->
+                <div @click="openModal(p)" class="photo-frame w-full h-52 cursor-pointer">
+                  <img :src="p.img" :alt="p.title" loading="lazy" class="group-hover:scale-105 transition-transform duration-500"/>
+                  <div x-show="p.status" class="absolute top-3 right-3">
+                    <span class="inline-flex items-center gap-1.5 bg-amber-500/90 text-white backdrop-blur-md text-xs font-medium px-3 py-1 rounded-full shadow-md">
+                      <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                      <span x-text="p.status"></span>
+                    </span>
                   </div>
                 </div>
+
+                <!-- Content Area -->
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <!-- Badges -->
+                    <div class="flex flex-wrap gap-2 mb-3">
+                      <template x-for="tag in p.tags" :key="tag">
+                        <span class="text-xs px-3 py-1 rounded-full font-medium"
+                          :class="tag === 'Java' || tag === 'Python' ? 'bg-orange-500/10 text-accent border border-orange-500/20' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-700/50'"
+                          x-text="tag"></span>
+                      </template>
+                    </div>
+
+                    <!-- Orange Title -->
+                    <h3 @click="openModal(p)" class="font-display font-bold text-xl text-accent hover:text-accent-light transition-colors mb-2 cursor-pointer" x-text="p.title"></h3>
+
+                    <!-- Description -->
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed line-clamp-3 mb-4" x-text="p.desc"></p>
+                  </div>
+
+                  <!-- 🎯 FOOTER (STYLISH VIEW PROJECT BUTTON + YEAR) -->
+                  <div class="pt-4 flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800/60 mt-auto">
+                    
+                    <!-- Modern Pill Button -->
+                    <button 
+                      @click="openModal(p)" 
+                      class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold rounded-full border border-zinc-200 dark:border-zinc-700/80 bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 hover:bg-accent hover:text-white dark:hover:bg-accent dark:hover:text-white hover:border-accent dark:hover:border-accent transition-all duration-300 shadow-sm cursor-pointer group/btn"
+                    >
+                      <span>View project</span>
+                      <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                      </svg>
+                    </button>
+
+                    <span class="text-xs font-mono text-zinc-400" x-text="p.year"></span>
+                  </div>
+                </div>
+
               </article>
             </div>
           </template>
         </div>
+
+        <!-- Empty State -->
         <div x-show="visibleCount === 0" x-cloak class="text-center py-20">
           <p class="text-zinc-400 text-sm">No projects in this category yet.</p>
         </div>
       </div>
     </section>
 
+    <!-- CALL TO ACTION SECTION -->
     <section class="pb-24">
       <div class="max-w-6xl mx-auto px-6">
         <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
@@ -152,37 +198,109 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="border-t border-zinc-100 dark:border-zinc-900">
-  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-sm text-zinc-400">Supun Priyashanka <br> © <span id="yr"></span> All rights reserved. </p>
-    
-    <div class="flex items-center gap-5 text-zinc-500 dark:text-zinc-400">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-zinc-400">Supun Priyashanka <br> © <span id="yr"></span> All rights reserved. </p>
+      
+      <div class="flex items-center gap-5 text-zinc-500 dark:text-zinc-400">
+        <!-- GitHub -->
+        <a href="https://github.com/supunyatiragala" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="GitHub">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
 
-      <!-- GitHub -->
-      <a href="https://github.com/supunyatiragala" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="GitHub">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-        </svg>
-      </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/supun-priyashanka" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+          </svg>
+        </a>
 
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/supun-priyashanka" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="LinkedIn">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
-        </svg>
-      </a>
-
-      <!-- Twitter (X) -->
-      <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="Twitter">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-        </svg>
-      </a>
+        <!-- Twitter (X) -->
+        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="Twitter">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+        </a>
+      </div>
     </div>
+  </footer>
 
+
+  <!-- 🪟 VIEW DETAILS POPUP MODAL -->
+  <div 
+    x-show="isModalOpen" 
+    x-cloak
+    x-transition.opacity.duration.300ms
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md"
+    @keydown.escape.window="closeModal()"
+  >
+    <div 
+      @click.away="closeModal()"
+      class="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl overflow-y-auto flex flex-col"
+    >
+      <!-- Close Button -->
+      <button 
+        @click="closeModal()" 
+        class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-zinc-900/70 text-white hover:bg-zinc-900 flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Modal Image -->
+      <div class="relative w-full h-64 sm:h-72 bg-zinc-900 shrink-0">
+        <img :src="selectedProject?.img" :alt="selectedProject?.title" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-950 via-transparent to-transparent"></div>
+        
+        <div class="absolute bottom-4 right-6 flex items-center gap-3" x-show="selectedProject?.github">
+          <a :href="selectedProject?.github || '#'" target="_blank" class="p-2.5 bg-zinc-900/80 hover:bg-zinc-900 text-white rounded-xl backdrop-blur-md border border-white/20 transition-all shadow-md flex items-center gap-2 text-xs font-medium">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Modal Content Body -->
+      <div class="p-6 sm:p-8 space-y-6" x-show="selectedProject">
+        <div>
+          <span class="text-xs font-bold tracking-widest text-accent uppercase" x-text="selectedProject?.categoryLabel || 'PROJECT'"></span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mt-1" x-text="selectedProject?.title"></h3>
+          
+          <div class="flex flex-wrap gap-2 mt-3">
+            <template x-for="t in selectedProject?.tags" :key="t">
+              <span class="text-xs bg-orange-500/10 text-accent border border-orange-500/20 px-3 py-1 rounded-full font-medium" x-text="t"></span>
+            </template>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+          <div x-show="selectedProject?.features && selectedProject?.features.length > 0">
+            <h4 class="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider mb-3">Key Features</h4>
+            <ul class="space-y-2.5 text-xs text-zinc-600 dark:text-zinc-300">
+              <template x-for="f in selectedProject?.features" :key="f">
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></span>
+                  <span x-text="f"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-zinc-900 dark:text-white uppercase tracking-wider mb-3">Overview</h4>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed" x-text="selectedProject?.desc"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</footer>
 
+
+  <!-- ⚙️ ALPINE.JS DATA SCRIPT -->
   <script>
     function projects() {
       return {
@@ -190,22 +308,53 @@
         scrolled: false,
         mobileMenu: false,
         filter: 'all',
+        selectedProject: null,
+        isModalOpen: false,
 
         filterOptions: [
-          { value: 'all',       label: 'All (1)' },
-          { value: 'python',      label: 'Python' },
-          { value: 'design',   label: 'UI/UX Design' },
-          { value: 'mysql',    label: 'MySQL' },
-          { value: 'java', label: 'Java' },
+          { value: 'all',    label: 'All (1)' },
+          { value: 'python', label: 'Python' },
+          { value: 'design', label: 'UI/UX Design' },
+          { value: 'mysql',  label: 'MySQL' },
+          { value: 'java',   label: 'Java' },
         ],
 
         allProjects: [
-          { id:1,  title:'Hospital Management System',  category:['java', 'mysql'],      categoryLabel:'Java',         tags:['Java','MySQL',],           year:'2026', desc:'A comprehensive digital healthcare platform designed to streamline hospital operations and enhance patient management. Features secure registration, doctor scheduling, and automated billing.',    img:'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=700&q=80',  url:'#' },
+          { 
+            id: 1, 
+            title: 'Hospital Management System', 
+            category: ['java', 'mysql'], 
+            categoryLabel: 'Java / MySQL', 
+            tags: ['Java', 'MySQL'], 
+            year: '2026', 
+            desc: 'A comprehensive digital healthcare platform designed to streamline hospital operations and enhance patient management. Features secure registration, doctor scheduling, and automated billing.', 
+            img: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=700&q=80', 
+            url: '#',
+            github: 'https://github.com/supunyatiragala',
+            features: [
+              'Automated Doctor & Patient Registration',
+              'Digital Prescription & Medical Records',
+              'Automated Invoice & Billing Engine',
+              'Real-Time Appointment Scheduling',
+              'Secure Role-Based Authentication'
+            ]
+          }
         ],
 
         get visibleCount() {
           if (this.filter === 'all') return this.allProjects.length;
           return this.allProjects.filter(p => p.category.includes(this.filter)).length;
+        },
+
+        openModal(project) {
+          this.selectedProject = project;
+          this.isModalOpen = true;
+          document.body.style.overflow = 'hidden';
+        },
+
+        closeModal() {
+          this.isModalOpen = false;
+          document.body.style.overflow = 'auto';
         },
 
         init() {
@@ -231,7 +380,9 @@
       }
     }
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Dynamic Year Fix
+    const yrEl = document.getElementById('yr') || document.getElementById('year');
+    if (yrEl) yrEl.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
