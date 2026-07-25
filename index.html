@@ -166,12 +166,26 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
           I'm a software engineer undergraduate at Sri Lanka Technology Campus. Currently deeply focused on AI development and Data Analysis, bridging the gap between clean code and smart solutions.
         </p>
 
-        <div class="reveal d3 flex flex-wrap gap-4">
-          <a href="#projects" class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
+        <div class="reveal d3 flex flex-nowrap items-center gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0">
+
+          <a href="#projects" class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-5 sm:px-6 py-3 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm whitespace-nowrap">
             View my projects
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
           </a>
-          <a href="#contact" class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get in touch</a>
+
+          <a href="#contact" class="inline-flex items-center gap-2 border border-zinc-300 text-zinc-700 hover:bg-zinc-900 hover:text-white hover:border-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-white dark:hover:text-black dark:hover:border-white font-medium px-5 sm:px-6 py-3 rounded-full transition-colors text-sm whitespace-nowrap">
+            Get in touch
+          </a>
+
+          <a href="Images/My CV Resume.pdf" download class="inline-flex items-center gap-2 border border-zinc-300 text-zinc-700 hover:bg-zinc-900 hover:text-white hover:border-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-white dark:hover:text-black dark:hover:border-white font-medium px-5 sm:px-6 py-3 rounded-full transition-colors text-sm whitespace-nowrap">
+            <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Resume
+          </a>
+
         </div>
 
         <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
@@ -181,11 +195,16 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
       <div class="reveal d2 flex justify-center md:justify-end">
         <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-          <div class="pf w-full h-full rounded-3xl">
-            <img src="Images/profile.jpg" alt="Supun — Software Engineer" loading="eager">
+          <div class="pf w-full h-full rounded-3xl overflow-hidden">
+            <img 
+              src="Images/my2.png" 
+              alt="Supun — Software Engineer" 
+              loading="eager"
+              class="w-full h-full object-cover object-[center_20%]"
+            >
           </div>
+        </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -412,12 +431,33 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
           </div>
         </div>
 
+        <!-- Certifications Section -->
+        <div>
+          <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Certifications &amp; Workshops</p>
+          
+          <div class="bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 p-4 rounded-2xl flex items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:border-zinc-700 shadow-sm">
+            
+            <div>
+              <h4 class="font-bold text-zinc-900 dark:text-white text-sm">AI &amp; Business Transformation</h4>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Sri Lanka Technology Campus (SLTC)</p>
+            </div>
+            
+            <button onclick="openModal()" class="text-xs font-medium px-4 py-2 rounded-xl border transition-all duration-300 cursor-pointer shrink-0 ml-3
+              bg-zinc-100 text-zinc-800 border-zinc-200 hover:bg-zinc-900 hover:text-white hover:border-zinc-900
+              dark:bg-zinc-800 dark:text-zinc-200 dark:border-zinc-700 dark:hover:bg-white dark:hover:text-black dark:hover:border-white">
+              View ↗
+            </button>
+
+          </div>
+        </div>
+
+        <!-- 3. Stack & Tools -->
         <div>
           <p class="text-xs font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3">Stack &amp; tools</p>
           <div class="flex flex-wrap gap-2" role="list" aria-label="Skills">
             <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Python</span>
             <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Java</span>
-            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">HTML5 & CSS3</span>
+            <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">HTML5 &amp; CSS3</span>
             <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">MySQL</span>
             <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">JavaScript</span>
             <span role="listitem" class="stag text-sm bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-full hover:border-accent">Figma</span>
@@ -453,7 +493,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
               </span>
               <span class="text-sm">supunyatiragala@gmail.com</span>
             </a>
-            <a href="www.linkedin.com/in/supun-priyashanka" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+            <a href="https://www.linkedin.com/in/supun-priyashanka" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
               <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </span>
@@ -521,7 +561,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
       </a>
 
       <!-- LinkedIn -->
-      <a href="www.linkedin.com/in/supun-priyashanka" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/supun-priyashanka" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors" aria-label="LinkedIn">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
         </svg>
@@ -610,5 +650,253 @@ function app() {
   });
 </script>
 
+<!-- Certificate Modal Popup -->
+<div id="certModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-all">
+  
+  <div class="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-3xl w-full p-4 overflow-hidden shadow-2xl">
+    
+    <!-- Close Button -->
+    <button onclick="closeModal()" class="absolute top-4 right-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white p-2 rounded-full transition-colors z-10 cursor-pointer" aria-label="Close">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <div class="mt-6 flex justify-center">
+      <img src="Images/AI_Webinar_Certificate.jpg" alt="AI Webinar Certificate" class="max-h-[80vh] w-auto rounded-lg object-contain shadow-md">
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('certModal').classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('certModal').classList.add('hidden');
+  }
+</script>
+
+<!-- ================= Chatbot Container ================= -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+  
+  <div id="chatWindow" class="hidden w-[350px] sm:w-[380px] h-[520px] bg-white/50 dark:bg-zinc-950/40 backdrop-blur-2xl border border-white/40 dark:border-white/10 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 mb-4">
+
+    <!-- Chat Header -->
+    <div class="p-4 flex items-center justify-between border-b border-zinc-200/40 dark:border-white/10 bg-white/30 dark:bg-zinc-900/30 backdrop-blur-md">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-white/70 dark:bg-zinc-800/80 border border-zinc-200/50 dark:border-white/10 flex items-center justify-center text-zinc-900 dark:text-white text-xs shadow-sm">
+          🤖
+        </div>
+        <div>
+          <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Supun's AI Assistant</h4>
+          <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Online</p>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button onclick="toggleChat()" class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white p-1.5 rounded-full hover:bg-zinc-200/50 dark:hover:bg-white/10 transition-colors cursor-pointer" aria-label="Close Chat">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 text-sm bg-transparent">
+      
+      <div class="flex items-start gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-white/60 dark:bg-zinc-800/80 border border-zinc-300/50 dark:border-white/10 flex items-center justify-center shrink-0 text-zinc-900 dark:text-white text-xs shadow-sm">
+          🤖
+        </div>
+        <div class="bg-white/60 dark:bg-zinc-800/70 text-zinc-800 dark:text-zinc-100 p-3.5 rounded-2xl rounded-tl-sm border border-white/60 dark:border-white/5 max-w-[80%] leading-relaxed shadow-sm backdrop-blur-sm">
+          Hi there! 👋 I'm Supun's virtual assistant. How can I help you today?
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2 pl-9">
+        <button onclick="sendQuickMessage('Tell me about your experience')" class="bg-white/40 hover:bg-white/70 dark:bg-zinc-800/40 dark:hover:bg-zinc-700/60 text-zinc-800 dark:text-zinc-200 border border-white/50 dark:border-white/10 text-xs text-left px-4 py-2 rounded-full w-fit transition-all cursor-pointer shadow-sm backdrop-blur-sm">
+          Tell me about your experience
+        </button>
+        <button onclick="sendQuickMessage('What are your skills?')" class="bg-white/40 hover:bg-white/70 dark:bg-zinc-800/40 dark:hover:bg-zinc-700/60 text-zinc-800 dark:text-zinc-200 border border-white/50 dark:border-white/10 text-xs text-left px-4 py-2 rounded-full w-fit transition-all cursor-pointer shadow-sm backdrop-blur-sm">
+          What are your skills?
+        </button>
+        <button onclick="sendQuickMessage('How can I contact you?')" class="bg-white/40 hover:bg-white/70 dark:bg-zinc-800/40 dark:hover:bg-zinc-700/60 text-zinc-800 dark:text-zinc-200 border border-white/50 dark:border-white/10 text-xs text-left px-4 py-2 rounded-full w-fit transition-all cursor-pointer shadow-sm backdrop-blur-sm">
+          How can I contact you?
+        </button>
+      </div>
+
+    </div>
+
+    <div class="p-3.5 border-t border-zinc-200/40 dark:border-white/10 bg-white/30 dark:bg-zinc-950/30 backdrop-blur-md flex items-center gap-2">
+      <input type="text" id="chatInput" placeholder="Type your message..." class="flex-1 bg-white/60 dark:bg-zinc-800/50 border border-white/60 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-500 dark:placeholder-zinc-400 text-sm rounded-full px-4 py-2.5 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-500 transition-all shadow-inner backdrop-blur-sm">
+
+      <button id="sendBtn" onclick="sendMessage()" class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 p-2.5 rounded-full transition-all cursor-pointer flex items-center justify-center shrink-0 shadow-md">
+        <svg class="w-4 h-4 transform rotate-45 -translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <button onclick="toggleChat()" class="relative group flex items-center justify-center w-14 h-14 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md text-zinc-900 dark:text-white border border-zinc-200/80 dark:border-white/10 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer" aria-label="Toggle Chat">
+    <span class="absolute -inset-1 rounded-full bg-blue-500/30 dark:bg-blue-400/30 animate-ping opacity-75"></span>
+    <div class="relative z-10 w-7 h-7 flex items-center justify-center text-xl font-bold transition-transform group-hover:rotate-12 animate-bounce">
+      🤖
+    </div>
+    <span class="absolute top-0.5 right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-white dark:border-zinc-900 rounded-full z-20"></span>
+  </button>
+
+</div>
+
+<script>
+  const GROQ_API_KEY = "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"; 
+  const API_URL = "https://api.groq.com/openai/v1/chat/completions";
+
+  // System Instruction
+  const SYSTEM_INSTRUCTION = `You are Supun Priyashanka's AI Portfolio Assistant. Answer questions politely, professionally, and concisely (1-3 sentences max). Supun is a Software Engineering Undergraduate at SLTC, skilled in Python, Java, Web Dev, MySQL, Figma.`;
+
+  let isGenerating = false;
+
+  function toggleChat() {
+    const chatWindow = document.getElementById('chatWindow');
+    chatWindow.classList.toggle('hidden');
+  }
+
+  function sendQuickMessage(text) {
+    if (isGenerating) return;
+    document.getElementById('chatInput').value = text;
+    sendMessage();
+  }
+
+  document.getElementById('chatInput')?.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  async function sendMessage() {
+    if (isGenerating) return;
+
+    const inputField = document.getElementById('chatInput');
+    const userMessage = inputField.value.trim();
+
+    if (!userMessage) return;
+
+    isGenerating = true;
+    inputField.disabled = true;
+
+    appendUserMessage(userMessage);
+    inputField.value = '';
+
+    const loadingId = appendLoadingIndicator();
+    scrollToBottom();
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${GROQ_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "llama-3.3-70b-versatile",
+          messages: [
+            { role: "system", content: SYSTEM_INSTRUCTION },
+            { role: "user", content: userMessage }
+          ]
+        })
+      });
+
+      const data = await response.json();
+      removeLoadingIndicator(loadingId);
+
+      if (data.choices && data.choices[0]?.message?.content) {
+        appendBotMessage(data.choices[0].message.content);
+      } else if (data.error) {
+        console.error("Groq Error:", data.error);
+        appendBotMessage(`⚠️ Error: ${data.error.message || 'Something went wrong'}`);
+      } else {
+        appendBotMessage("Sorry, I couldn't process that response. Please try again!");
+      }
+
+    } catch (error) {
+      console.error("Network Error:", error);
+      removeLoadingIndicator(loadingId);
+      appendBotMessage("Oops! Network connection error. Please try again.");
+    } finally {
+      isGenerating = false;
+      inputField.disabled = false;
+      inputField.focus();
+      scrollToBottom();
+    }
+  }
+
+  function appendUserMessage(text) {
+    const messageContainer = document.getElementById('chatMessages');
+    const html = `
+      <div class="flex items-start justify-end gap-2">
+        <div class="bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium p-3.5 rounded-2xl rounded-tr-sm max-w-[80%] leading-relaxed shadow-sm">
+          ${escapeHTML(text)}
+        </div>
+        <div class="w-7 h-7 rounded-full bg-zinc-900 dark:bg-zinc-200 text-white dark:text-zinc-900 flex items-center justify-center shrink-0 text-xs font-bold">
+          👤
+        </div>
+      </div>
+    `;
+    messageContainer.insertAdjacentHTML('beforeend', html);
+  }
+
+  function appendBotMessage(text) {
+    const messageContainer = document.getElementById('chatMessages');
+    const html = `
+      <div class="flex items-start gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-white/10 flex items-center justify-center shrink-0 text-zinc-900 dark:text-white text-xs shadow-sm">
+          🤖
+        </div>
+        <div class="bg-zinc-100/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 p-3.5 rounded-2xl rounded-tl-sm border border-zinc-200/50 dark:border-white/5 max-w-[80%] leading-relaxed shadow-sm">
+          ${escapeHTML(text)}
+        </div>
+      </div>
+    `;
+    messageContainer.insertAdjacentHTML('beforeend', html);
+  }
+
+  function appendLoadingIndicator() {
+    const messageContainer = document.getElementById('chatMessages');
+    const id = 'loading-' + Date.now();
+    const html = `
+      <div id="${id}" class="flex items-start gap-2.5">
+        <div class="w-7 h-7 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-white/10 flex items-center justify-center shrink-0 text-zinc-900 dark:text-white text-xs shadow-sm">
+          🤖
+        </div>
+        <div class="bg-zinc-100/90 dark:bg-zinc-800/90 text-zinc-500 p-3.5 rounded-2xl rounded-tl-sm border border-zinc-200/50 dark:border-white/5 text-xs animate-pulse">
+          Thinking...
+        </div>
+      </div>
+    `;
+    messageContainer.insertAdjacentHTML('beforeend', html);
+    return id;
+  }
+
+  function removeLoadingIndicator(id) {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  }
+
+  function scrollToBottom() {
+    const messageContainer = document.getElementById('chatMessages');
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+  }
+
+  function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g, 
+      tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+    );
+  }
+</script>
 </body>
 </html>
